@@ -1,0 +1,9 @@
+
+\\\\\\\\\\\
+
+INSERT INTO User
+	(FirstName, LastName, Age, Weight)
+values
+	('MArtin', 'Tolman', 22,189);
+
+\\\\\\\\\\\
