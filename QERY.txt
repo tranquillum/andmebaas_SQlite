@@ -71,5 +71,5 @@ WHERE LIKE 'J%';
 --otsi koik eesnimed, mis sisaldavad tahetiehndeid 'aa'
 SELECT LastName
 From User
-WHERE LIKE '%aa%' and LIKE '%aa' and LIKE 'aa%';
+WHERE LIKE '%aa%';
 
