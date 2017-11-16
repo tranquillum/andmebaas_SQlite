@@ -1,9 +1,75 @@
 
-\\\\\\\\\\\
+\\\\\\\\\\\  lisamine
 
+-- Rea lisamine
 INSERT INTO User
 	(FirstName, LastName, Age, Weight)
 values
-	('MArtin', 'Tolman', 22,189);
+	('Martin', 'Tolman', 21,189.5);
 
-\\\\\\\\\\\
+
+--mitme rea lisamine
+INSERT INTO User
+	(FirstName, LastName, Age, Weight)
+values
+	('Rats', 'Kots', 23,189.1),
+	('Mast', 'Dest', 25,189.2),
+ 	('Lekt', 'Eries', 27,189.3);
+
+\\\\\\\\\\\\\  kustutamine
+
+--Kustutamine
+DELETE FROM 
+	User
+WHERE 
+	FirstNAme ='Rats'
+	AND LastName ='Kots';
+
+
+--Uks voi teine kustutamine
+DELETE FROM 
+	User
+WHERE 
+	FirstNAme ='Mats'
+	OR Age>20;
+
+\\\\\\\\Muutmine
+--muutmine
+
+UPDATE 
+	User
+SET
+	Age = 23
+WHERE 
+	FirstName = 'Martin';
+	
+\\\\\\\\Kusimine
+--1
+SELECT 
+	FirstName, Age
+From 
+	User
+Where 
+	Age<26
+	AND Age>17
+
+--2
+Select LastName
+From 
+	User
+where 
+	Age <30 
+	and Weight <100
+ORDER BY LastName DESC
+
+\\\\\\
+--otsi koik J tahega algavad
+Select LastName
+from User 
+WHERE LIKE 'J%';
+
+--otsi koik eesnimed, mis sisaldavad tahetiehndeid 'aa'
+SELECT LastName
+From User
+WHERE LIKE '%aa%' and LIKE '%aa' and LIKE 'aa%';
+
