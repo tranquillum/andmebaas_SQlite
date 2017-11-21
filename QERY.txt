@@ -36,6 +36,8 @@ WHERE
 \\\\\\\\Muutmine
 --muutmine
 
+
+
 UPDATE 
 	User
 SET
@@ -73,3 +75,41 @@ SELECT LastName
 From User
 WHERE LIKE '%aa%';
 
+
+\\\\\\\tabeli lisamine
+--lisada uus tabel
+
+
+create table Pet
+(
+	Id integer primary key autoincrement,
+	Name text,
+	UserID integer,
+	Birthday timestamp,
+	DataCreated timestamp default current_timestamp not null
+);
+
+\\\\paring inner join
+select Birthday
+from Pet
+inner join User on Pet.UserID=User.ID
+
+
+\\\\ inner join
+select User.FirstName AS [Name] , Pet.Birthday AS [Pets birthday]
+from Pet
+inner join User on Pet.UserID = User.ID
+where User.FirstName= 'Martin';
+
+
+\\\left join
+select *
+from Pet
+left join User on Pet.UserID=User.ID
+
+\\\join >2 tabels
+select  User.FirstName AS [Name] , Pet.Birthday AS [Pets birthday], Animal.Type AS [Touk]
+from Pet
+ join User on User.ID= Pet.UserID
+join Animal on Animal.ID=Pet.AnimalID
+	
