@@ -112,4 +112,29 @@ select  User.FirstName AS [Name] , Pet.Birthday AS [Pets birthday], Animal.Type 
 from Pet
  join User on User.ID= Pet.UserID
 join Animal on Animal.ID=Pet.AnimalID
+
+\\\ koera nimed kellel in omaniku weight >60
+SELECT Pet.Name AS Nimi
+FROM Pet
+join User on User.ID=Pet.UserID
+join Animal on Animal.ID=Pet.AnimalID
+WHERE User.Weight > 60 and Animal.ID=1;
+
+
+\\\\select in select
+SELECT Pet.Name AS Nimi
+FROM Pet
+join User on User.ID=Pet.UserID
+join Animal on Animal.ID=Pet.AnimalID
+WHERE User.Age in 
+(SELECT max(user.Age)
+FROM User
+join Pet on User.ID=Pet.UserID
+join Animal on Animal.ID=Pet.AnimalID
+Where Animal.type = 'dog')
 	
+
+\\\\\Kusi kasutajate kellel vanus on  24 voi 23 voi 25 eesnimed
+select User.FirstName
+from User
+Where age in(24,23,25)
